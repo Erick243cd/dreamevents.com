@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use Config\UserAgent;
+use Config\UserAgents;
 
 class Pages extends BaseController
 {
@@ -11,7 +11,7 @@ class Pages extends BaseController
 
         $agent = $this->request->getUserAgent();
 
-        if (file_exists(APPPATH . 'views/pages/' . $page . '.php')) {
+        if (file_exists(APPPATH . 'views/pages/' . localLang() . '/' . $page . '.php')) {
             //Head and footer Links
             $limit = $page == 'services' ? 10 : 4;
             $data = [
@@ -19,10 +19,10 @@ class Pages extends BaseController
                 'page' => $page,
                 'lang' => localLang(),
                 'isMobile' => $agent->isMobile(),
-                // 'services' => ($page == 'home' || $page == 'services') ? $this->serviceModel->asObject()->limit($limit)->find() : $this->serviceModel->asObject()->limit($limit)->find()
+                'services' => ($page == 'home' || $page == 'services') ? $this->serviceModel->asObject()->limit($limit)->find() : $this->serviceModel->asObject()->limit($limit)->find()
             ];
-
-            return view('pages/' . $page, $data);
+            
+            return view('pages/' . localLang() . '/' . $page, $data);
         } else {
             return view('errors/404');
         }
