@@ -8,7 +8,6 @@ class Pages extends BaseController
 {
     public function views($page = 'home')
     {
-
         $agent = $this->request->getUserAgent();
 
         if (file_exists(APPPATH . 'views/pages/' . localLang() . '/' . $page . '.php')) {
@@ -19,7 +18,7 @@ class Pages extends BaseController
                 'page' => $page,
                 'lang' => localLang(),
                 'isMobile' => $agent->isMobile(),
-                'services' => ($page == 'home' || $page == 'services') ? $this->serviceModel->asObject()->limit($limit)->find() : $this->serviceModel->asObject()->limit($limit)->find()
+                // 'services' => ($page == 'home' || $page == 'services') ? $this->serviceModel->asObject()->limit($limit)->find() : $this->serviceModel->asObject()->limit($limit)->find()
             ];
             
             return view('pages/' . localLang() . '/' . $page, $data);

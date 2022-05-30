@@ -6,26 +6,25 @@ function headerData(?string $page, ?string $lang)
     $data  = [
         'doctype' => doctype(),
         'lang' => $lang ?? 'fr',
-        'title' => ucfirst($page) . ' | Afrinewsoft',
-        'faveicon' => link_tag('public/favicon.png', 'shortcut icon', 'image/ico'),
-        'cssLinks' => link_tag('public/assets/main.css'),
-        'scriptLinks' => [
-            script_tag('public/assets/js/bootstrap.bundle.min.js'),
-            script_tag('public/assets/js/tiny-slider.js'),
-            script_tag('public/assets/js/main.js'),
-        ],
+        'title' => ucfirst($page) . ' | Dream event',
+        'faveicon' => link_tag('public/assets/images/favicon.ico', 'shortcut icon', 'image/ico'),
+
         'metaHeader' => [
-            '<meta charset="utf-8">
-             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <meta name="description" content="Free Web tutorials">
-            <meta name="keywords" content="Afrinewsoft, Agence digital RDC, Startup Numérique de Lubumbashi">
-            <meta name="author" content="Afrinewsoft Erick Banze">'
+           '<meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+            <meta name="robots" content="index, follow"/>
+            <meta name="keywords" content=""/>
+            <meta name="description" content=""/>'
         ],
+
         'home' => ($lang === 'fr') ? 'Accueil' : 'Home',
-        'about' => ($lang === 'fr') ? 'A propos' : 'About Us',
-        'services' => ($lang === 'fr') ? 'Nos Services' : 'Our Services Us',
-        'contact' => ($lang === 'fr') ? 'Contact' : 'Contact Us',
-        'gallery' => ($lang === 'fr') ? 'Galerie' : 'Gallery',
+        'about' => ($lang === 'fr') ? 'A propos' : 'About',
+        'news' => ($lang === 'fr') ? 'Nouveautés' : 'News',
+        'contact' => ($lang === 'fr') ? 'Contact' : 'Contact',
+        'listings' => ($lang === 'fr') ? 'Services' : 'Listings',
+        'profile' => ($lang === 'fr') ? 'Mon profile' : 'My profile',
+        'login_signin' => ($lang === 'fr') ? 'Connexion & Inscription' : 'Login & Signin',
+        'dashboard' => ($lang === 'fr') ? 'Panneau de contrôle' : 'dashboard',
     ];
 
     return (object)$data;
