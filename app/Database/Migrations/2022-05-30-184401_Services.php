@@ -13,10 +13,16 @@ class Services extends Migration
                 'type'           => 'INT',
                 'auto_increment' => TRUE
             ],
+
             'categoryId' => [
                 'type'          => 'INT'
             ],
+
             'userId' => [
+                'type'          => 'INT'
+            ],
+
+            'cityId'       => [
                 'type'          => 'INT'
             ],
 
@@ -24,17 +30,27 @@ class Services extends Migration
                 'type'          => 'VARCHAR',
                 'constraint'    => '255',
             ],
+
             'serviceName_en'       => [
                 'type'          => 'VARCHAR',
                 'constraint'    => '255'
             ],
-            'serviceCity'       => [
+            'serviceEmail'       => [
                 'type'          => 'VARCHAR',
                 'constraint'    => '255'
             ],
-            'serviceAdress'       => [
+            'servicePhone'       => [
+                'type'          => 'VARCHAR',
+                'constraint'    => '255'
+            ],
+            'serviceWebsite'       => [
+                'type'          => 'VARCHAR',
+                'constraint'    => '255'
+            ],
+            'serviceLocation'       => [
                 'type'          => 'TEXT',
             ],
+
             'serviceDescription'       => [
                 'type'          => 'TEXT',
             ],
