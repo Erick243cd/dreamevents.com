@@ -9,8 +9,9 @@ class Categories extends Migration
     public function up()
     {
         $this->forge->addField([
-            'categryId'            => [
+            'categoryId'            => [
                 'type'           => 'INT',
+                'unsigned'       => TRUE,
                 'auto_increment' => TRUE
             ],
             'categoryName_fr'      => [
@@ -21,18 +22,22 @@ class Categories extends Migration
                 'type'          => 'VARCHAR',
                 'constraint'    => '255'
             ],
+            'categorySlug'      => [
+                'type'          => 'VARCHAR',
+                'constraint'    => '255'
+            ],
             'isactive'      => [
                 'type'          => 'INTEGER',
                 'default'       => 1
             ]
         ]);
     
-        $this->forge->addKey('categryId', TRUE);
-        $this->forge->createTable('pl_categories');
+        $this->forge->addKey('categoryId', TRUE);
+        $this->forge->createTable('lp_categories');
     }
 
     public function down()
     {
-        //
+        // $this->forge->dropTable('lp_categories');
     }
 }

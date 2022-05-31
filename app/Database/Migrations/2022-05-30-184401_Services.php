@@ -11,19 +11,23 @@ class Services extends Migration
         $this->forge->addField([
             'serviceId'            => [
                 'type'           => 'INT',
+                'unsigned'       => TRUE,
                 'auto_increment' => TRUE
             ],
 
             'categoryId' => [
-                'type'          => 'INT'
+                'type'          => 'INT',
+                'unsigned'      => TRUE
             ],
 
             'userId' => [
-                'type'          => 'INT'
+                'type'          => 'INT',
+                'unsigned' =>    TRUE
             ],
 
             'cityId'       => [
-                'type'          => 'INT'
+                'type'          => 'INT',
+                'unsigned' =>    TRUE
             ],
 
             'serviceName_fr'       => [
@@ -60,14 +64,17 @@ class Services extends Migration
                 'default'       => 1
             ]
         ]);
+
         $this->forge->addKey('serviceId', TRUE);
         $this->forge->createTable('lp_services');
-        $this->forge->addForeignKey('categoryId', 'lp_categories', 'categryId');
-        $this->forge->addForeignKey('userId', 'lp_users', 'userId');
+        // $this->forge->addForeignKey('categories', 'lp_categories', 'categoryId');
+        // $this->forge->addForeignKey('userId', 'lp_users', 'userId');
+        // $this->forge->addForeignKey('cityId', 'lp_cities', 'cityId');
+
     }
 
     public function down()
     {
-        //
+        // $this->forge->dropTable('lp_services');
     }
 }
