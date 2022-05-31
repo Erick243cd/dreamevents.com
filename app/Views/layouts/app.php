@@ -86,7 +86,7 @@
                             <!--second level -->
                             <ul>
                                 <?php foreach ($categories as $row) : ?>
-                                    <li><a href="<?= site_url("services/$row->categorySlug")?>" title="<?= $row->categoryName_fr ?>"><?= $row->categoryName_fr ?></a></li>
+                                    <li><a href="<?= site_url("categories/$row->categorySlug") ?>" title="<?= $row->categoryName_fr ?>"><?= $row->categoryName_fr ?></a></li>
                                 <?php endforeach ?>
                             </ul>
                             <!--second level end-->
@@ -114,17 +114,6 @@
                                 <li><a href="<?= $page === 'profile' ? '#' : site_url('profile') ?>"><?= $links->profile ?></a></li>
                                 <li><a href="<?= $page === 'login-signin' ? '#' : site_url('login-signin') ?>"><?= $links->login_signin ?></a></li>
                                 <li><a href="<?= $page === 'dashboard' ? '#' : site_url('dashboard') ?>"><?= $links->dashboard ?></a></li>
-
-                                <!-- <li><a href="author-single.html">User single</a></li>
-                                <li><a href="help.html">How it Works</a></li>
-                                <li><a href="booking.html">Booking</a></li>
-                                <li><a href="pricing-tables.html">Pricing</a></li>
-                                <li><a href="dashboard.html">User Dasboard</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
-                                <li><a href="dashboard-add-listing.html">Add Listing</a></li>
-                                <li><a href="invoice.html">Invoice</a></li>
-                                <li><a href="login-sign.html">login Sign</a></li>
-                                <li><a href="404.html">404</a></li> -->
                             </ul>
                             <!--second level end-->
                         </li>
