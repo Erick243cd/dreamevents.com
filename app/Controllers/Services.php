@@ -14,7 +14,7 @@ class Services extends BaseController
 
     public function servicesByCategories(?string $slug = null)
     {
-        $category = $this->categoreyModel->asObject()->where('categorySlug', $slug)->first();
+        $category = $this->categoryModel->asObject()->where('categorySlug', $slug)->first();
 
         $agent = $this->request->getUserAgent();
 
@@ -33,7 +33,7 @@ class Services extends BaseController
 
             return view('services/'. localLang().'/servicesbycategory', $data);
         } else {
-            return view('error/404');
+            return view('errors/404');
         }
     }
 }
