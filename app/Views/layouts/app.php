@@ -82,15 +82,12 @@
                             <!--second level end-->
                         </li>
                         <li>
-                            <a href="#" class="<?= $page === 'listings' ? 'act-link' : '' ?>"> <?= $links->listings ?> <i class="fa fa-caret-down"></i></a>
+                            <a href="#" class="<?= ($page == 'listings' || $page == 'listbycategory') ? 'act-link' : '' ?>"> <?= $links->listings ?> <i class="fa fa-caret-down"></i></a>
                             <!--second level -->
                             <ul>
-                                <li><a href="listing.html">Column map</a></li>
-                                <li><a href="listing2.html">Column map 2</a></li>
-                                <li><a href="listing3.html">Fullwidth Map</a></li>
-                                <li><a href="listing4.html">Fullwidth Map 2</a></li>
-                                <li><a href="listing5.html">Without Map</a></li>
-                                <li><a href="listing6.html">Without Map 2</a></li>\
+                                <?php foreach ($categories as $row) : ?>
+                                    <li><a href="<?= site_url("services/$row->categorySlug")?>" title="<?= $row->categoryName_fr ?>"><?= $row->categoryName_fr ?></a></li>
+                                <?php endforeach ?>
                             </ul>
                             <!--second level end-->
                         </li>
@@ -117,7 +114,7 @@
                                 <li><a href="<?= $page === 'profile' ? '#' : site_url('profile') ?>"><?= $links->profile ?></a></li>
                                 <li><a href="<?= $page === 'login-signin' ? '#' : site_url('login-signin') ?>"><?= $links->login_signin ?></a></li>
                                 <li><a href="<?= $page === 'dashboard' ? '#' : site_url('dashboard') ?>"><?= $links->dashboard ?></a></li>
-                                
+
                                 <!-- <li><a href="author-single.html">User single</a></li>
                                 <li><a href="help.html">How it Works</a></li>
                                 <li><a href="booking.html">Booking</a></li>
