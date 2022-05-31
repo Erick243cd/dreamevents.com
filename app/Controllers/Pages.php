@@ -12,13 +12,14 @@ class Pages extends BaseController
 
         if (file_exists(APPPATH . 'views/pages/' . localLang() . '/' . $page . '.php')) {
             //Head and footer Links
-            $limit = $page == 'services' ? 10 : 4;
+            
             $data = [
                 'links' => headerData($page, localLang()),
                 'page' => $page,
                 'lang' => localLang(),
                 'isMobile' => $agent->isMobile(),
-                // 'services' => ($page == 'home' || $page == 'services') ? $this->serviceModel->asObject()->limit($limit)->find() : $this->serviceModel->asObject()->limit($limit)->find()
+                'categories' =>  categoryData($page),
+                'cities'=>cityData($page)
             ];
             
             return view('pages/' . localLang() . '/' . $page, $data);
