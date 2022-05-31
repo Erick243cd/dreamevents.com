@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Models\CategoryModel;
+use App\Models\CityModel;
+use App\Models\ServiceModel;
+use App\Models\UserModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -49,6 +53,11 @@ class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         $this->session = \Config\Services::session();
-        helper(['custom', 'form', 'html', 'url', 'text']);
+        helper(['custom', 'form', 'html', 'url', 'text', 'store']);
+
+        $this->serviceModel = new ServiceModel() ;
+        $this->userModel = new UserModel();
+        $this->categoryModel = new CategoryModel();
+        $this->cityModel =  new CityModel();
     }
 }
