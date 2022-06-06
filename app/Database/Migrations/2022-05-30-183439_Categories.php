@@ -26,12 +26,17 @@ class Categories extends Migration
                 'type'          => 'VARCHAR',
                 'constraint'    => '255'
             ],
+            'categoryIcon' => [
+                'type'          => 'VARCHAR',
+                'constraint'    => '255',
+                'default' => 'far fa-cocktail'
+            ],
             'isactive'      => [
                 'type'          => 'INTEGER',
                 'default'       => 1
             ]
         ]);
-    
+
         $this->forge->addKey('categoryId', TRUE);
         $this->forge->createTable('lp_categories');
     }
