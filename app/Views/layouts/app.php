@@ -69,17 +69,7 @@
                 <nav>
                     <ul class="no-list-style">
                         <li>
-                            <a href="<?= $page === 'home' ? '#' : site_url() ?>" class="<?= $page === 'home' ? 'act-link' : '' ?>"><?= $links->home ?> <i class="fa fa-caret-down"></i></a>
-                            <!--second level -->
-                            <ul>
-                                <li><a href="index.html">Parallax Image</a></li>
-                                <li><a href="index2.html">Slider</a></li>
-                                <li><a href="index3.html">Slideshow</a></li>
-                                <li><a href="index4.html">Video</a></li>
-                                <li><a href="index5.html">Map</a></li>
-                                <li><a href="rtl/index.html" target="_blank">RTL Version</a></li>
-                            </ul>
-                            <!--second level end-->
+                            <a href="<?= $page === 'home' ? '#' : site_url() ?>" class="<?= $page === 'home' ? 'act-link' : '' ?>"><?= $links->home ?></a>                           
                         </li>
                         <li>
                             <a href="#" class="<?= ($page == 'listings' || $page == 'listbycategory') ? 'act-link' : '' ?>"> <?= $links->listings ?> <i class="fa fa-caret-down"></i></a>
@@ -88,6 +78,7 @@
                                 <?php foreach ($categories as $row) : ?>
                                     <li><a href="<?= site_url("categories/$row->categorySlug") ?>" title="<?= $row->categoryName_fr ?>"><?= $row->categoryName_fr ?></a></li>
                                 <?php endforeach ?>
+                                <li><a href="<?= site_url("categories") ?>" title="Voir plus">Voir plus...</a></li>
                             </ul>
                             <!--second level end-->
                         </li>
@@ -123,39 +114,32 @@
             <!-- navigation  end -->
             <!-- header-search_container -->
             <div class="header-search_container header-search vis-search">
-                <div class="container small-container">
+            <?= form_open('search') ?>    
+            <div class="container small-container">
                     <div class="header-search-input-wrap fl-wrap">
-                        <!-- header-search-input -->
-                        <div class="header-search-input">
-                            <label><i class="fal fa-keyboard"></i></label>
-                            <input type="text" placeholder="What are you looking for ?" value="" />
-                        </div>
-                        <!-- header-search-input end -->
-                        <!-- header-search-input -->
-                        <div class="header-search-input location autocomplete-container">
-                            <label><i class="fal fa-map-marker"></i></label>
-                            <input type="text" placeholder="Location..." class="autocomplete-input" id="autocompleteid2" value="" />
-                            <a href="#"><i class="fal fa-dot-circle"></i></a>
-                        </div>
-                        <!-- header-search-input end -->
-                        <!-- header-search-input -->
                         <div class="header-search-input header-search_selectinpt ">
-                            <select data-placeholder="Category" class="chosen-select no-radius">
-                                <option>All Categories</option>
-                                <option>All Categories</option>
-                                <option>Shops</option>
-                                <option>Hotels</option>
-                                <option>Restaurants</option>
-                                <option>Fitness</option>
-                                <option>Events</option>
+                            <select data-placeholder="Ville" class="chosen-select no-radius" required>
+                                <option value="">Ville</option>
+                                <?php foreach ($cities as $row) : ?>
+                                    <option value="<?= $row->cityName_fr ?>"><?= $row->cityName_fr ?></option>
+                                <?php endforeach ?>
                             </select>
                         </div>
-                        <!-- header-search-input end -->
-                        <button class="header-search-button green-bg" onclick="window.location.href='listing.html'"><i class="far fa-search"></i> Search </button>
+                        
+                        <div class="header-search-input header-search_selectinpt ">
+                            <select data-placeholder="Category" class="chosen-select no-radius">
+                                <option value="all-services">Tous types</option>
+                                <?php foreach ($categories as $row) : ?>
+                                    <option value="<?= $row->categorySlug ?>"><?= $row->categoryName_fr ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                        <button class="header-search-button green-bg" type="submit"><i class="far fa-search"></i> Rechercher </button>
                     </div>
                     <div class="header-search_close color-bg"><i class="fal fa-long-arrow-up"></i></div>
                 </div>
             </div>
+            <?= form_close() ?>   
             <!-- header-search_container  end -->
             <!-- wishlist-wrap-->
             <div class="header-modal novis_wishlist">
