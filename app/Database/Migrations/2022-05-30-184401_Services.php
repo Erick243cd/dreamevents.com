@@ -62,7 +62,16 @@ class Services extends Migration
             'isactive'      => [
                 'type'          => 'INTEGER',
                 'default'       => 1
-            ]
+            ],
+            'ispremium'      => [
+                'type'          => 'INTEGER',
+                'default'       => 0
+            ],
+            'serviceCoverImage'      => [
+                'type'          => 'VARCHAR',
+                'constraint'       => '100'
+            ],
+
         ]);
 
         $this->forge->addKey('serviceId', TRUE);
