@@ -51,9 +51,9 @@
                 <div class="show-lang"><span><i class="fal fa-globe-europe"></i><strong>En</strong></span><i class="fa fa-caret-down arrlan"></i></div>
                 <ul class="lang-tooltip lang-action no-list-style">
                     <li><a href="#" class="current-lan" data-lantext="En">English</a></li>
-                    <li><a href="#" data-lantext="Fr">Franais</a></li>
-                    <li><a href="#" data-lantext="Es">Espaol</a></li>
-                    <li><a href="#" data-lantext="De">Deutsch</a></li>
+                    <li><a href="#" data-lantext="Fr">Français</a></li>
+                    <!-- <li><a href="#" data-lantext="Es">Espaol</a></li>
+                    <li><a href="#" data-lantext="De">Deutsch</a></li> -->
                 </ul>
             </div>
             <!-- lang-wrap end-->
@@ -69,7 +69,7 @@
                 <nav>
                     <ul class="no-list-style">
                         <li>
-                            <a href="<?= $page === 'home' ? '#' : site_url() ?>" class="<?= $page === 'home' ? 'act-link' : '' ?>"><?= $links->home ?></a>                           
+                            <a href="<?= $page === 'home' ? '#' : site_url() ?>" class="<?= $page === 'home' ? 'act-link' : '' ?>"><?= $links->home ?></a>
                         </li>
                         <li>
                             <a href="#" class="<?= ($page == 'listings' || $page == 'listbycategory') ? 'act-link' : '' ?>"> <?= $links->listings ?> <i class="fa fa-caret-down"></i></a>
@@ -114,8 +114,8 @@
             <!-- navigation  end -->
             <!-- header-search_container -->
             <div class="header-search_container header-search vis-search">
-            <?= form_open('search') ?>    
-            <div class="container small-container">
+                <?= form_open('search') ?>
+                <div class="container small-container">
                     <div class="header-search-input-wrap fl-wrap">
                         <div class="header-search-input header-search_selectinpt ">
                             <select data-placeholder="Ville" class="chosen-select no-radius" required>
@@ -125,7 +125,7 @@
                                 <?php endforeach ?>
                             </select>
                         </div>
-                        
+
                         <div class="header-search-input header-search_selectinpt ">
                             <select data-placeholder="Category" class="chosen-select no-radius">
                                 <option value="all-services">Tous types</option>
@@ -139,7 +139,7 @@
                     <div class="header-search_close color-bg"><i class="fal fa-long-arrow-up"></i></div>
                 </div>
             </div>
-            <?= form_close() ?>   
+            <?= form_close() ?>
             <!-- header-search_container  end -->
             <!-- wishlist-wrap-->
             <div class="header-modal novis_wishlist">
@@ -218,15 +218,15 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="subscribe-header">
-                                <h3>Subscribe For a <span>Newsletter</span></h3>
-                                <p>Whant to be notified about new locations ? Just sign up.</p>
+                                <h3>Souscrire à notre <span>Newsletter</span></h3>
+                                <p>Vous souhaitez être informé des nouveaux services ? Inscrivez-vous simplement.</p>
                             </div>
                         </div>
                         <div class="col-md-7">
                             <div class="subscribe-widget">
                                 <div class="subcribe-form">
-                                    <form id="subscribe">
-                                        <input class="enteremail fl-wrap" name="email" id="subscribe-email" placeholder="Enter Your Email" spellcheck="false" type="text">
+                                    <form id="subscribe" action="<?= site_url("newsletter") ?>" method="post">
+                                        <input class="enteremail fl-wrap" name="email" id="subscribe-email" placeholder="Entrer votre adresse mail" spellcheck="false" type="text">
                                         <button type="submit" id="subscribe-button" class="subscribe-button"><i class="fal fa-envelope"></i></button>
                                         <label for="subscribe-email" class="subscribe-message"></label>
                                     </form>
@@ -244,22 +244,22 @@
                         <!-- footer-widget-->
                         <div class="col-md-4">
                             <div class="footer-widget fl-wrap">
-                                <div class="footer-logo"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+                                <div class="footer-logo"><a href="<?= $page == 'home' ? '#' : site_url() ?>"><img src="<?= site_url("public/assets/images/logo.png") ?>" alt="Tayari Events"></a></div>
                                 <div class="footer-contacts-widget fl-wrap">
-                                    <p>In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu mi magna. Etiam suscipit commodo gravida. </p>
+                                    <p>Trouvez facilement les services pour la preparation de vos événements avec Tayari Events </p>
                                     <ul class="footer-contacts fl-wrap no-list-style">
-                                        <li><span><i class="fal fa-envelope"></i> Mail :</span><a href="#" target="_blank">yourmail@domain.com</a></li>
-                                        <li> <span><i class="fal fa-map-marker"></i> Adress :</span><a href="#" target="_blank">USA 27TH Brooklyn NY</a></li>
-                                        <li><span><i class="fal fa-phone"></i> Phone :</span><a href="#">+7(111)123456789</a></li>
+                                        <li><span><i class="fal fa-envelope"></i> Mail :</span><a href="mailto:contact@tayari-events.com" target="_blank">contact@tayari-events.com</a></li>
+                                        <li> <span><i class="fal fa-map-marker"></i> Adress :</span><a href="#" target="_blank">Lubumbashi, RD Congo</a></li>
+                                        <li><span><i class="fal fa-phone"></i> Phone :</span><a href="#">+(243)825 363 907</a></li>
                                     </ul>
                                     <div class="footer-social">
-                                        <span>Find us on: </span>
+                                        <span>Trouvez nous sur : </span>
                                         <ul class="no-list-style">
                                             <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                             <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
                                             <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
-                                            <li><a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                            <li><a href="https://wa.me/243825363907?text=Bonjour Dream events, j'ai été intéressé par un des vos services et je veux en savoir plus " target="_blank"><i class="fab fa-whatsapp"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -269,32 +269,21 @@
                         <!-- footer-widget-->
                         <div class="col-md-4">
                             <div class="footer-widget fl-wrap">
-                                <h3>Our Last News</h3>
+                                <h3>Nos services</h3>
                                 <div class="footer-widget-posts fl-wrap">
                                     <ul class="no-list-style">
-                                        <li class="clearfix">
-                                            <a href="#" class="widget-posts-img"><img src="images/all/4.jpg" class="respimg" alt=""></a>
-                                            <div class="widget-posts-descr">
-                                                <a href="#" title="">Vivamus dapibus rutrum</a>
-                                                <span class="widget-posts-date"><i class="fal fa-calendar"></i> 21 Mar 09.05 </span>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <a href="#" class="widget-posts-img"><img src="images/all/2.jpg" class="respimg" alt=""></a>
-                                            <div class="widget-posts-descr">
-                                                <a href="#" title=""> In hac habitasse platea</a>
-                                                <span class="widget-posts-date"><i class="fal fa-calendar"></i> 7 Mar 18.21 </span>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <a href="#" class="widget-posts-img"><img src="images/all/7.jpg" class="respimg" alt=""></a>
-                                            <div class="widget-posts-descr">
-                                                <a href="#" title="">Tortor tempor in porta</a>
-                                                <span class="widget-posts-date"><i class="fal fa-calendar"></i> 7 Mar 16.42 </span>
-                                            </div>
-                                        </li>
+                                        <?php foreach ($premiumservices as $item) : ?>
+                                            <li class="clearfix">
+                                                <a href="<?= site_url("services/$item->serviceSlug") ?>" class="widget-posts-img"><img src="<?= site_url("public/assets/images/services/covers/$item->serviceCoverImage") ?>" class="respimg" alt="Tayari Events, <?= $item->serviceName_fr ?>"></a>
+                                                <div class="widget-posts-descr">
+                                                    <a href="<?= site_url("service/$item->serviceSlug") ?>" title="<?= $item->serviceName_fr ?>"><?= $item->serviceName_fr ?></a>
+                                                    <span class="widget-posts-date"><i class="fal fa-calendar"></i> <?= $item->isactive == 1 ? 'Ouvert Maintenant' : 'Fermé' ?> </span>
+                                                </div>
+                                            </li>
+                                        <?php endforeach ?>
+
                                     </ul>
-                                    <a href="blog.html" class="footer-link">Read all <i class="fal fa-long-arrow-right"></i></a>
+                                    <a href="<?= $page == 'news' ? '#' : site_url("news") ?>" class="footer-link">Voir plus <i class="fal fa-long-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -302,11 +291,18 @@
                         <!-- footer-widget  -->
                         <div class="col-md-4">
                             <div class="footer-widget fl-wrap ">
-                                <h3>Our Twitter</h3>
-                                <div class="twitter-holder fl-wrap scrollbar-inner2" data-simplebar data-simplebar-auto-hide="false">
-                                    <div id="footer-twiit"></div>
+                                <h3>Catégories de services</h3>
+                                <div class="footer-widget-posts fl-wrap">
+                                    <ul class="no-list-style">
+                                        <?php foreach ($categories as $item) : ?>
+                                            <li class="clearfix">
+                                                <div class="widget-posts-descr">
+                                                    <a href="<?= site_url("categories/$item->categorySlug") ?>" title="<?= $item->categoryName_fr ?>"><?= $item->categoryName_fr ?></a>
+                                                </div>
+                                            </li>
+                                        <?php endforeach ?>
+                                    </ul>
                                 </div>
-                                <a href="#" class="footer-link twitter-link" target="_blank">Follow us <i class="fal fa-long-arrow-right"></i></a>
                             </div>
                         </div>
                         <!-- footer-widget end-->
@@ -325,21 +321,21 @@
             <!--sub-footer-->
             <div class="sub-footer  fl-wrap">
                 <div class="container">
-                    <div class="copyright"> &#169; Townhub 2019 . All rights reserved.</div>
+                    <div class="copyright"> &#169; Tayari Events <?= date("Y") ?> . Tous droits reservés.</div>
                     <div class="lang-wrap">
                         <div class="show-lang"><span><i class="fal fa-globe-europe"></i><strong>En</strong></span><i class="fa fa-caret-down arrlan"></i></div>
                         <ul class="lang-tooltip lang-action no-list-style">
                             <li><a href="#" class="current-lan" data-lantext="En">English</a></li>
-                            <li><a href="#" data-lantext="Fr">Franais</a></li>
-                            <li><a href="#" data-lantext="Es">Espaol</a></li>
-                            <li><a href="#" data-lantext="De">Deutsch</a></li>
+                            <li><a href="#" data-lantext="Fr">Français</a></li>
+                            <!-- <li><a href="#" data-lantext="Es">Espaol</a></li>
+                            <li><a href="#" data-lantext="De">Deutsch</a></li> -->
                         </ul>
                     </div>
                     <div class="subfooter-nav">
                         <ul class="no-list-style">
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="<?= site_url("terms") ?>">Conditions d'utilisation</a></li>
+                            <li><a href="<?= site_url("addListing") ?>" title="Ajouter un service">Enrengistrer vos services</a></li>
+                            <li><a href="<?= $page == 'news' ? '#' : site_url("news") ?>" title="Actualités">Actualites</a></li>
                         </ul>
                     </div>
                 </div>

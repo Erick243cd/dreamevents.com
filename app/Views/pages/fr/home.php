@@ -181,8 +181,8 @@
                             <div class="colomn-text-title">
                                 <h3>Un peu de détails techniques</h3>
                                 <p>Dans le but de satisfaire les visiteus de notre plate-forme,
-                                    nous avons fait de sorte que la plate forme sois conçue avec le principe de PWA (Progressive Web Application),
-                                    une application web progressive que vous pouvez installer sur vos smart-phones ous vos PC.
+                                    nous avons fait de sorte que la plate-forme sois conçue avec le principe de PWA (Progressive Web Application),
+                                    une application web progressive que vous pouvez installer sur vos smart-phones ous vos PC pendant votre navigation.
                                     De ce fait vous pouvez naviguer sur la plate-forme Tayari Events même hors connexion internet.</p>
                                 <a href="#" class="down-btn color3-bg"><i class="fab fa-chrome"></i> Google Chrome </a>
                                 <a href="#" class="down-btn color3-bg"><i class="fab fa-safari"></i> Safari </a>
@@ -195,8 +195,8 @@
                                         ?>" class="main-collage-image" > -->
                             <div class="images-collage-title color2-bg icdec"> <img src="<?= site_url("public/assets/images/logo.png") ?>" alt="Tayari Events Logo"></div>
                             <div class="images-collage_icon green-bg" style="right:-20px; top:120px;"><i class="fal fa-thumbs-up"></i></div>
-                            <div class="collage-image-min cim_1"><img src="<?= site_url("public/assets/images/api/1.jpg") ?>" alt="Tayari Events PWA"></div>
-                            <div class="collage-image-min cim_2"><img src="<?= site_url("public/assets/images/api/2.jpg") ?>" alt="Tayari Events PWA"></div>
+                            <div class="collage-image-min cim_1"><img src="<?= site_url("public/assets/images/api/1.png") ?>" alt="Tayari Events PWA"></div>
+                            <div class="collage-image-min cim_2"><img src="<?= site_url("public/assets/images/api/2.png") ?>" alt="Tayari Events PWA"></div>
                             <div class="collage-image-btn green-bg">Choisir un service</div>
                             <div class="collage-image-input">Rechercher <i class="fa fa-search"></i></div>
                         </div>
@@ -222,53 +222,6 @@
             </div>
             <div class="circle-wrap" style="right:55%;top:90px;">
                 <div class="circle_bg-bal circle_bg-bal_versmall" data-scrollax="properties: { translateY: '-350px' }"></div>
-            </div>
-        </section>
-        <!--section end-->
-
-        <!--section  -->
-        <section class="gray-bg">
-            <div class="container">
-                <div class="clients-carousel-wrap fl-wrap">
-                    <div class="cc-btn   cc-prev"><i class="fal fa-angle-left"></i></div>
-                    <div class="cc-btn cc-next"><i class="fal fa-angle-right"></i></div>
-                    <div class="clients-carousel">
-                        <div class="swiper-container">
-                            <div class="swiper-wrapper">
-                                <!--client-item-->
-                                <div class="swiper-slide">
-                                    <a href="#" class="client-item"><img src="images/clients/1.png" alt=""></a>
-                                </div>
-                                <!--client-item end-->
-                                <!--client-item-->
-                                <div class="swiper-slide">
-                                    <a href="#" class="client-item"><img src="images/clients/2.png" alt=""></a>
-                                </div>
-                                <!--client-item end-->
-                                <!--client-item-->
-                                <div class="swiper-slide">
-                                    <a href="#" class="client-item"><img src="images/clients/3.png" alt=""></a>
-                                </div>
-                                <!--client-item end-->
-                                <!--client-item-->
-                                <div class="swiper-slide">
-                                    <a href="#" class="client-item"><img src="images/clients/1.png" alt=""></a>
-                                </div>
-                                <!--client-item end-->
-                                <!--client-item-->
-                                <div class="swiper-slide">
-                                    <a href="#" class="client-item"><img src="images/clients/2.png" alt=""></a>
-                                </div>
-                                <!--client-item end-->
-                                <!--client-item-->
-                                <div class="swiper-slide">
-                                    <a href="#" class="client-item"><img src="images/clients/3.png" alt=""></a>
-                                </div>
-                                <!--client-item end-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
         <!--section end-->
