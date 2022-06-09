@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::views');
 $routes->get('/(:segment)', 'Pages::views/$1');
 $routes->get('pages/(:segement)', 'Pages::views/$1');
+$routes->post('search', 'Services::serviceSearch');
 
 $myroutes = [];
 
