@@ -118,19 +118,19 @@
                 <div class="container small-container">
                     <div class="header-search-input-wrap fl-wrap">
                         <div class="header-search-input header-search_selectinpt ">
-                            <select data-placeholder="Ville" class="chosen-select no-radius" required>
+                            <select data-placeholder="Ville" class="chosen-select no-radius" name="city" required>
                                 <option value="">Ville</option>
                                 <?php foreach ($cities as $row) : ?>
-                                    <option value="<?= $row->cityName_fr ?>"><?= $row->cityName_fr ?></option>
+                                    <option value="<?= $row->cityId ?>"><?= $row->cityName_fr ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
 
                         <div class="header-search-input header-search_selectinpt ">
-                            <select data-placeholder="Category" class="chosen-select no-radius">
-                                <option value="all-services">Tous types</option>
+                            <select data-placeholder="Category" class="chosen-select no-radius" name="category">
+                                <option value="all">Tous types</option>
                                 <?php foreach ($categories as $row) : ?>
-                                    <option value="<?= $row->categorySlug ?>"><?= $row->categoryName_fr ?></option>
+                                    <option value="<?= $row->categoryId ?>"><?= $row->categoryName_fr ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
