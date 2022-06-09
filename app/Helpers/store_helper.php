@@ -29,7 +29,7 @@ function allCategoriesData()
 function premiumServices(?string $page)
 {
     $service =  new ServiceModel();
-    $limit = $page === 'services' ? 100 : 8;
+    $limit = $page == 'services' ? 100 : 8;
     return $service->asObject()
         ->join('lp_categories', 'lp_services.categoryId=lp_categories.categoryId')
         ->join('lp_cities', 'lp_services.cityId=lp_cities.cityId')
@@ -40,7 +40,7 @@ function premiumServices(?string $page)
 function allServices(?string $page)
 {
     $service =  new ServiceModel();
-    $limit = $page === 'services' ? 100 : 8;
+    $limit = $page == 'services' ? 100 : 8;
     return $service->asObject()
         ->join('lp_categories', 'lp_services.categoryId=lp_categories.categoryId')
         ->join('lp_cities', 'lp_services.cityId=lp_cities.cityId')
