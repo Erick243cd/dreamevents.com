@@ -33,21 +33,21 @@
                         <div class="main-search-input-wrap fl-wrap">
                             <div class="main-search-input fl-wrap">
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Loaction" class="chosen-select on-radius" disabled require name="city">
-                                        <option value="lubumbashi">Lubumbashi</option>
+                                    <select data-placeholder="Loaction" class="chosen-select on-radius" require name="city">
+                                        <option value="2">Lubumbashi</option>
                                     </select>
                                 </div>
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Loaction" class="chosen-select on-radius" required name="services">
-                                        <option value="all-services">Tous types</option>
+                                    <select data-placeholder="Loaction" class="chosen-select on-radius" required name="category">
+                                        <option value="all">Tous types</option>
                                         <?php foreach ($allcategories as $row) : ?>
-                                            <option value="<?= $row->categorySlug ?>"><?= $row->categoryName_fr ?></option>
+                                            <option value="<?= $row->categoryId ?>"><?= $row->categoryName_fr ?></option>
                                         <?php endforeach ?>
                                     </select>
                                 </div>
                                 <div class="main-search-input-item">
                                     <label><i class="fal fa-keyboard"></i></label>
-                                    <input type="text" placeholder="Mots clés (Optionnel)" value="" name="keywords" />
+                                    <input type="text" placeholder="Mots clés (Optionnel)" value="<?= set_value('keywords')?>" name="keywords" />
                                 </div>
                                 <button class="main-search-button color2-bg" type="submit">Rechercher <i class="far fa-search"></i></button>
                             </div>
@@ -63,21 +63,21 @@
                         <div class="main-search-input-wrap fl-wrap">
                             <div class="main-search-input fl-wrap">
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Loaction" class="chosen-select on-radius" disabled require name="city">
-                                        <option value="kolwezi">Kolwezi</option>
+                                    <select data-placeholder="Loaction" class="chosen-select on-radius" require name="city">
+                                        <option value="3">Kolwezi</option>
                                     </select>
                                 </div>
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Loaction" class="chosen-select on-radius" required name="services">
-                                        <option value="all-services">Tous types</option>
+                                    <select data-placeholder="Loaction" class="chosen-select on-radius" required name="category">
+                                        <option value="all">Tous types</option>
                                         <?php foreach ($allcategories as $row) : ?>
-                                            <option value="<?= $row->categorySlug ?>"><?= $row->categoryName_fr ?></option>
+                                            <option value="<?= $row->categoryId ?>"><?= $row->categoryName_fr ?></option>
                                         <?php endforeach ?>
                                     </select>
                                 </div>
                                 <div class="main-search-input-item">
                                     <label><i class="fal fa-keyboard"></i></label>
-                                    <input type="text" placeholder="Mots clés (Optionnel)" value="" name="keywords" />
+                                    <input type="text" placeholder="Mots clés (Optionnel)" value="<?= set_value('keywords')?>" name="keywords" />
                                 </div>
                                 <button class="main-search-button color2-bg" type="submit">Rechercher <i class="far fa-search"></i></button>
                             </div>
@@ -93,21 +93,21 @@
                         <div class="main-search-input-wrap fl-wrap">
                             <div class="main-search-input fl-wrap">
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Loaction" class="chosen-select on-radius" disabled require name="city">
-                                        <option value="likasi">Likasi</option>
+                                    <select data-placeholder="Locaction" class="chosen-select on-radius" require name="city">
+                                        <option value="1">Likasi</option>
                                     </select>
                                 </div>
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Loaction" class="chosen-select on-radius" required name="services">
-                                        <option value="all-services">Tous types</option>
+                                    <select data-placeholder="Categories" class="chosen-select on-radius" required name="category">
+                                        <option value="all">Tous types</option>
                                         <?php foreach ($allcategories as $row) : ?>
-                                            <option value="<?= $row->categorySlug ?>"><?= $row->categoryName_fr ?></option>
+                                            <option value="<?= $row->categoryId ?>"><?= $row->categoryName_fr ?></option>
                                         <?php endforeach ?>
                                     </select>
                                 </div>
                                 <div class="main-search-input-item">
                                     <label><i class="fal fa-keyboard"></i></label>
-                                    <input type="text" placeholder="Mots clés (Optionnel)" value="" name="keywords" />
+                                    <input type="text" placeholder="Mots clés (Optionnel)" value="<?= set_value('keywords')?>" name="keywords" />
                                 </div>
                                 <button class="main-search-button color2-bg" type="submit">Rechercher <i class="far fa-search"></i></button>
                             </div>
@@ -124,21 +124,21 @@
                         <div class="main-search-input-wrap fl-wrap">
                             <div class="main-search-input fl-wrap">
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Loaction" class="chosen-select on-radius" disabled require name="city">
-                                        <option value="kipushi">Kipushi</option>
+                                    <select data-placeholder="Loaction" class="chosen-select on-radius" require name="city">
+                                        <option value="5">Kipushi</option>
                                     </select>
                                 </div>
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Loaction" class="chosen-select on-radius" required name="services">
-                                        <option value="all-services">Tous types</option>
+                                    <select data-placeholder="Categories" class="chosen-select on-radius" required name="category">
+                                        <option value="all">Tous types</option>
                                         <?php foreach ($allcategories as $row) : ?>
-                                            <option value="<?= $row->categorySlug ?>"><?= $row->categoryName_fr ?></option>
+                                            <option value="<?= $row->categoryId ?>"><?= $row->categoryName_fr ?></option>
                                         <?php endforeach ?>
                                     </select>
                                 </div>
                                 <div class="main-search-input-item">
                                     <label><i class="fal fa-keyboard"></i></label>
-                                    <input type="text" placeholder="Mots clés (Optionnel)" value="" name="keywords" />
+                                    <input type="text" placeholder="Mots clés (Optionnel)" value="<?= set_value('keywords')?>" name="keywords" />
                                 </div>
                                 <button class="main-search-button color2-bg" type="submit">Rechercher <i class="far fa-search"></i></button>
                             </div>
@@ -155,21 +155,21 @@
                         <div class="main-search-input-wrap fl-wrap">
                             <div class="main-search-input fl-wrap">
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Loaction" class="chosen-select on-radius" disabled require name="city">
-                                        <option value="kasumbalesa">Kasumbalesa</option>
+                                    <select data-placeholder="Loaction" class="chosen-select on-radius"require name="city">
+                                        <option value="4">Kasumbalesa</option>
                                     </select>
                                 </div>
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Loaction" class="chosen-select on-radius" required name="services">
-                                        <option value="all-services">Tous types</option>
+                                    <select data-placeholder="Categories" class="chosen-select on-radius" required name="category">
+                                        <option value="all">Tous types</option>
                                         <?php foreach ($allcategories as $row) : ?>
-                                            <option value="<?= $row->categorySlug ?>"><?= $row->categoryName_fr ?></option>
+                                            <option value="<?= $row->categoryId?>"><?= $row->categoryName_fr ?></option>
                                         <?php endforeach ?>
                                     </select>
                                 </div>
                                 <div class="main-search-input-item">
                                     <label><i class="fal fa-keyboard"></i></label>
-                                    <input type="text" placeholder="Mots clés (Optionnel)" value="" name="keywords" />
+                                    <input type="text" placeholder="Mots clés (Optionnel)" value="<?= set_value('keywords')?>" name="keywords" />
                                 </div>
                                 <button class="main-search-button color2-bg" type="submit">Rechercher <i class="far fa-search"></i></button>
                             </div>
