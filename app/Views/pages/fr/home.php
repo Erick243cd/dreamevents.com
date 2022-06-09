@@ -39,13 +39,13 @@
                                                     <?php endif; ?>
                                                     <div class="geodir-category-opt">
                                                         <div class="geodir-category-opt_title">
-                                                            <h4><a href="https://wa.me/243825363907?text=Bonjour Dream events, j'ai été intéressé par le service <?= $row->serviceName_fr ?> et je voulais en savoir plus..." title="Contacter le propriétaire de <?= $row->serviceName_fr ?>"><?= $row->serviceName_fr ?></a></h4>
+                                                            <h4><a href="https://wa.me/243825363907?text=Bonjour Tayari events, j'ai été intéressé par le service <?= $row->serviceName_fr ?> et je voulais en savoir plus..." title="Contacter le propriétaire de <?= $row->serviceName_fr ?>"><?= $row->serviceName_fr ?></a></h4>
                                                             <div class="geodir-category-location"><a href="<?= site_url("services/$row->serviceSlug") ?>"><i class="fas fa-map-marker-alt"></i> <?= $row->cityName_fr ?></a></div>
                                                         </div>
                                                         <div class="listing-rating-count-wrap">
                                                         </div>
                                                         <div class="listing_carditem_footer fl-wrap">
-                                                            <a class="listing-item-category-wrap" href="https://wa.me/243825363907?text=Bonjour Dream events, j'ai été intéressé par le service <?= $row->serviceName_fr ?> et je voulais en savoir plus..." title="Contactez le responsable">
+                                                            <a class="listing-item-category-wrap" href="https://wa.me/243825363907?text=Bonjour Tayari events, j'ai été intéressé par le service <?= $row->serviceName_fr ?> et je voulais en savoir plus..." title="Contactez le responsable">
                                                                 <div class="listing-item-category red-bg"><i class="<?= $row->categoryIcon ?>"></i></div>
                                                                 <span><?= $row->categoryName_fr ?></span>
                                                             </a>
