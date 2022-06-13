@@ -56,3 +56,15 @@ function servicesByCity()
         ->join('lp_cities', 'lp_services.cityId=lp_cities.cityId')
         ->groupBy('lp_cities.cityName_fr')->find();
 }
+
+function userServices()
+{
+    $service = new ServiceModel();
+    $data['user_data'] = (object) session()->get('user_data');
+
+    return $service->asObject()
+        ->join('lp_cities', 'lp_services.cityId=lp_cities.cityId')
+        ->join('lp_users', 'lp_services.userId=lp_users.userId')
+        ->where('lp_services.userId', $data['user_data']->userId)
+        ->groupBy('lp_cities.cityName_fr')->find();
+}

@@ -18,6 +18,11 @@
     <?= link_tag('public/assets/css/style.css') ?>
     <?= link_tag('public/assets/css/color.css') ?>
 
+    <?php if ($page == 'profile' || $page == 'newService' || $page == 'addservice' || $page == 'MyServices') : ?>
+        <link type="text/css" rel="stylesheet" href="<?= site_url("public/assets/css/dashboard-style.css") ?>">
+        <link type="text/css" rel="stylesheet" href="<?= site_url("public/assets/css/rtl-style.css") ?>">
+    <?php endif ?>
+
     <!--=============== favicons ===============-->
     <?= $links->faveicon ?>
 
@@ -42,16 +47,23 @@
             <div class="header-search_btn show-search-button"><i class="fal fa-search"></i><span>Rechercher</span></div>
             <!-- header-search_btn end-->
             <!-- header opt -->
-            <a href="dashboard-add-listing.html" class="add-list color-bg">Add Listing <span><i class="fal fa-layer-plus"></i></span></a>
-            <div class="cart-btn   show-header-modal" data-microtip-position="bottom" role="tooltip" aria-label="Your Wishlist"><i class="fal fa-heart"></i><span class="cart-counter green-bg"></span> </div>
-            <div class="show-reg-form modal-open avatar-img" data-srcav="images/avatar/3.jpg"><i class="fal fa-user"></i>Sign In</div>
+            <a href="<?= site_url("addservice") ?>" class="add-list color-bg">Ajouter Service <span><i class="fal fa-layer-plus"></i></span></a>
+
+            <?php
+            $userdata = session()->get('user_data');
+            if (!empty($userdata)) : ?>
+                <div class="show-reg-form modalopen avatar-img" data-srcav=""><i class="fal fa-user"></i><a style="color: white;" href="<?= site_url("logout") ?>">Sign Out</a></div>
+            <?php else : ?>
+                <div class="show-reg-form mopenodal- avatar-img" data-srcav=""><i class="fal fa-user"></i><a style="color: white;" href="<?= site_url("login") ?>">Sign In</a></div>
+            <?php endif ?>
             <!-- header opt end-->
             <!-- lang-wrap-->
             <div class="lang-wrap">
-                <div class="show-lang"><span><i class="fal fa-globe-europe"></i><strong>En</strong></span><i class="fa fa-caret-down arrlan"></i></div>
+                <div class="show-lang"><span><i class="fal fa-globe-europe"></i><strong>Fr</strong></span><i class="fa fa-caret-down arrlan"></i></div>
                 <ul class="lang-tooltip lang-action no-list-style">
-                    <li><a href="#" class="current-lan" data-lantext="En">English</a></li>
-                    <li><a href="#" data-lantext="Fr">Français</a></li>
+                    <li><a href="#" class="current-lan" data-lantext="Fr">Français</a></li>
+                    <li><a href="#" data-lantext="En">English</a></li>
+
                     <!-- <li><a href="#" data-lantext="Es">Espaol</a></li>
                     <li><a href="#" data-lantext="De">Deutsch</a></li> -->
                 </ul>
@@ -78,13 +90,15 @@
                                 <?php foreach ($categories as $row) : ?>
                                     <li><a href="<?= site_url("categories/$row->categorySlug") ?>" title="<?= $row->categoryName_fr ?>"><?= $row->categoryName_fr ?></a></li>
                                 <?php endforeach ?>
-                                <li><a href="<?= site_url("categories") ?>" title="Voir plus">Voir plus...</a></li>
+                                <li><a href="<?= site_url("services") ?>" title="Voir plus">Voir plus...</a></li>
                             </ul>
                             <!--second level end-->
                         </li>
-                        <li>
-                            <a href="<?= $page === 'news' ? '#' : site_url('news') ?>"> <?= $links->news ?></a>
-                        </li>
+                        <!-- <li>
+                            <a href="<? //= $page === 'news' ? '#' : site_url('news') 
+                                        ?>"> <? //= $links->news 
+                                                ?></a>
+                        </li> -->
                         <li>
                             <a href="#" class="<?= ($page == 'about' || $page == 'contact' || $page == 'profile' || $page == 'login-signin' || $page == 'dashboard') ? 'act-link' : '' ?>">Pages <i class="fa fa-caret-down"></i></a>
                             <!--second level -->
@@ -100,11 +114,15 @@
                                 <!--third  level end-->
                                 <!-- </li> -->
 
-                                <li><a href="<?= $page === 'about' ? '#' : site_url('about') ?>"><?= $links->about ?></a></li>
-                                <li><a href="<?= $page === 'contact' ? '#' : site_url('contact') ?>"><?= $links->contact ?></a></li>
+
                                 <li><a href="<?= $page === 'profile' ? '#' : site_url('profile') ?>"><?= $links->profile ?></a></li>
-                                <li><a href="<?= $page === 'login-signin' ? '#' : site_url('login-signin') ?>"><?= $links->login_signin ?></a></li>
-                                <li><a href="<?= $page === 'dashboard' ? '#' : site_url('dashboard') ?>"><?= $links->dashboard ?></a></li>
+                                <li><a href="<?= $page === 'login' ? '#' : site_url('login') ?>"><?= "Login"// $links->login_signin ?></a></li>
+                                <li><a href="<?= $page === 'register' ? '#' : site_url('register') ?>"><?= "Register"// $links->login_signin ?></a></li>
+                            
+                                <li><a href="<?= $page === 'dashboard' ? '#' : site_url('userservices') ?>"><?= $links->dashboard ?></a></li>
+
+                                <li><a href="<?= $page === 'about' ? '#' : '#' ?>"><?= $links->about ?></a></li>
+                                <li><a href="<?= $page === 'contact' ? '#' : '#' ?>"><?= $links->contact ?></a></li>
                             </ul>
                             <!--second level end-->
                         </li>
@@ -141,68 +159,6 @@
             </div>
             <?= form_close() ?>
             <!-- header-search_container  end -->
-            <!-- wishlist-wrap-->
-            <div class="header-modal novis_wishlist">
-                <!-- header-modal-container-->
-                <div class="header-modal-container scrollbar-inner fl-wrap" data-simplebar>
-                    <!--widget-posts-->
-                    <div class="widget-posts  fl-wrap">
-                        <ul class="no-list-style">
-                            <li>
-                                <div class="widget-posts-img"><a href="listing-single.html"><img src="images/gallery/thumbnail/1.png" alt=""></a>
-                                </div>
-                                <div class="widget-posts-descr">
-                                    <h4><a href="listing-single.html">Iconic Cafe</a></h4>
-                                    <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i> 40 Journal Square Plaza, NJ, USA</a></div>
-                                    <div class="widget-posts-descr-link"><a href="listing.html">Restaurants </a> <a href="listing.html">Cafe</a></div>
-                                    <div class="widget-posts-descr-score">4.1</div>
-                                    <div class="clear-wishlist"><i class="fal fa-times-circle"></i></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="widget-posts-img"><a href="listing-single.html"><img src="images/gallery/thumbnail/2.png" alt=""></a>
-                                </div>
-                                <div class="widget-posts-descr">
-                                    <h4><a href="listing-single.html">MontePlaza Hotel</a></h4>
-                                    <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i> 70 Bright St New York, USA </a></div>
-                                    <div class="widget-posts-descr-link"><a href="listing.html">Hotels </a> </div>
-                                    <div class="widget-posts-descr-score">5.0</div>
-                                    <div class="clear-wishlist"><i class="fal fa-times-circle"></i></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="widget-posts-img"><a href="listing-single.html"><img src="images/gallery/thumbnail/3.png" alt=""></a>
-                                </div>
-                                <div class="widget-posts-descr">
-                                    <h4><a href="listing-single.html">Rocko Band in Marquee Club</a></h4>
-                                    <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i>75 Prince St, NY, USA</a></div>
-                                    <div class="widget-posts-descr-link"><a href="listing.html">Events</a> </div>
-                                    <div class="widget-posts-descr-score">4.2</div>
-                                    <div class="clear-wishlist"><i class="fal fa-times-circle"></i></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="widget-posts-img"><a href="listing-single.html"><img src="images/gallery/thumbnail/4.png" alt=""></a>
-                                </div>
-                                <div class="widget-posts-descr">
-                                    <h4><a href="listing-single.html">Premium Fitness Gym</a></h4>
-                                    <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i> W 85th St, New York, USA</a></div>
-                                    <div class="widget-posts-descr-link"><a href="listing.html">Fitness</a> <a href="listing.html">Gym</a> </div>
-                                    <div class="widget-posts-descr-score">5.0</div>
-                                    <div class="clear-wishlist"><i class="fal fa-times-circle"></i></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- widget-posts end-->
-                </div>
-                <!-- header-modal-container end-->
-                <div class="header-modal-top fl-wrap">
-                    <h4>Your Wishlist : <span><strong></strong> Locations</span></h4>
-                    <div class="close-header-modal"><i class="far fa-times"></i></div>
-                </div>
-            </div>
-            <!--wishlist-wrap end -->
         </header>
         <!-- header end-->
 
@@ -276,14 +232,14 @@
                                             <li class="clearfix">
                                                 <a href="<?= site_url("services/$item->serviceSlug") ?>" class="widget-posts-img"><img src="<?= site_url("public/assets/images/services/covers/$item->serviceCoverImage") ?>" class="respimg" alt="Tayari Events, <?= $item->serviceName_fr ?>"></a>
                                                 <div class="widget-posts-descr">
-                                                    <a href="<?= site_url("service/$item->serviceSlug") ?>" title="<?= $item->serviceName_fr ?>"><?= $item->serviceName_fr ?></a>
+                                                    <a href="<?= site_url("services/$item->serviceSlug") ?>" title="<?= $item->serviceName_fr ?>"><?= $item->serviceName_fr ?></a>
                                                     <span class="widget-posts-date"><i class="fal fa-calendar"></i> <?= $item->isactive == 1 ? 'Ouvert Maintenant' : 'Fermé' ?> </span>
                                                 </div>
                                             </li>
                                         <?php endforeach ?>
 
                                     </ul>
-                                    <a href="<?= $page == 'news' ? '#' : site_url("news") ?>" class="footer-link">Voir plus <i class="fal fa-long-arrow-right"></i></a>
+                                    <a href="<?= $page == 'news' ? '#' : site_url("services") ?>" class="footer-link">Voir plus <i class="fal fa-long-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -323,10 +279,10 @@
                 <div class="container">
                     <div class="copyright"> &#169; Tayari Events <?= date("Y") ?> . Tous droits reservés.</div>
                     <div class="lang-wrap">
-                        <div class="show-lang"><span><i class="fal fa-globe-europe"></i><strong>En</strong></span><i class="fa fa-caret-down arrlan"></i></div>
+                        <div class="show-lang"><span><i class="fal fa-globe-europe"></i><strong>Fr</strong></span><i class="fa fa-caret-down arrlan"></i></div>
                         <ul class="lang-tooltip lang-action no-list-style">
-                            <li><a href="#" class="current-lan" data-lantext="En">English</a></li>
-                            <li><a href="#" data-lantext="Fr">Français</a></li>
+                            <li><a href="#" class="current-lan" data-lantext="Fr">Français</a></li>
+                            <li><a href="#" data-lantext="En">English</a></li>
                             <!-- <li><a href="#" data-lantext="Es">Espaol</a></li>
                             <li><a href="#" data-lantext="De">Deutsch</a></li> -->
                         </ul>
@@ -334,8 +290,8 @@
                     <div class="subfooter-nav">
                         <ul class="no-list-style">
                             <li><a href="<?= site_url("terms") ?>">Conditions d'utilisation</a></li>
-                            <li><a href="<?= site_url("addListing") ?>" title="Ajouter un service">Enrengistrer vos services</a></li>
-                            <li><a href="<?= $page == 'news' ? '#' : site_url("news") ?>" title="Actualités">Actualites</a></li>
+                            <li><a href="<?= site_url("addservice") ?>" title="Ajouter un service">Enrengistrer vos services</a></li>
+                            <li><a href="<?= $page == 'userservices' ? '#' : site_url("userservices") ?>" title="Actualités">Voir vos services</a></li>
                         </ul>
                     </div>
                 </div>

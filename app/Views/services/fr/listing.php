@@ -12,7 +12,7 @@
                 <div class="section-title center-align big-title">
                     <h2><span>Listes de services</span></h2>
                     <span class="section-separator"></span>
-                    <div class="breadcrumbs fl-wrap"><a href="#">Home</a><a href="#">Listings</a><span>Listings Without Map</span></div>
+                    <div class="breadcrumbs fl-wrap"><a href="<?= site_url()?>">Accueil</a><a href="<?= site_url("services") ?>">Liste de services</a><span>Resultats de la recherche</span></div>
                 </div>
             </div>
             <div class="header-sec-link">

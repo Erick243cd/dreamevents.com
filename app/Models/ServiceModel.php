@@ -15,7 +15,7 @@ class ServiceModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['serviceId', 'categoryId', 'userId', 
-    'cityId', 'serviceName_fr', 'serviceName_en', 'serviceEmail', 'servicePhone', 'serviceWebsite', 'serviceLocation', 'serviceDescription'];
+    'cityId', 'serviceName_fr', 'serviceName_en', 'serviceSlug', 'serviceCoverImage', 'serviceEmail', 'servicePhone', 'serviceWebsite', 'serviceLocation', 'serviceDescription'];
 
    
 }

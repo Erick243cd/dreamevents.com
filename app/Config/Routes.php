@@ -18,7 +18,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  */
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Pages');
-$routes->setDefaultMethod('views');
+$routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 $routes->setAutoRoute(true);
@@ -31,18 +31,42 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Pages::views');
-$routes->get('/(:segment)', 'Pages::views/$1');
-$routes->get('pages/(:segement)', 'Pages::views/$1');
+$routes->get('/', 'Pages::index');
+// $routes->get('/(:segment)', 'Pages::views/$1');
+// $routes->get('pages/(:segement)', 'Pages::views/$1');
 $routes->post('search', 'Services::serviceSearch');
+$routes->post('register', 'Users::register');
+$routes->post('login', 'Users::login');
+$routes->post('profile', 'Users::myProfile');
+$routes->post('logout', 'Users::logout');
+$routes->post('addservice', 'Services::addnew');
 
 $myroutes = [];
 
-$myroutes['dashboard'] = 'Pages::dashboard';
-$myroutes['views/(:segment)'] = 'Pages::views/$1';
-$myroutes['categories/(:segment)'] = 'Services::servicesByCategories/$1';
 
-$routes->set404Override(function(){
+// $myroutes['views/(:segment)'] = 'Pages::views/$1';
+$myroutes['services/(:segment)'] = 'Services::viewDetail/$1';
+$myroutes['categories/(:segment)'] = 'Services::servicesByCategories/$1';
+$myroutes['cities/(:segment)'] = 'Services::servicesByCities/$1';
+
+$myroutes['addservice'] = 'Services::addnew';
+$myroutes['services'] = 'Services::index';
+$myroutes['userservices'] = 'Services::userServices';
+$myroutes['categories'] = 'Services::index';
+$myroutes['cities'] = 'Services::index';
+
+$myroutes['profile'] = 'Users::myProfile';
+$myroutes['register'] = 'Users::register';
+$myroutes['login'] = 'Users::login';
+$myroutes['logout'] = 'Users::logout';
+
+
+
+
+
+
+
+$routes->set404Override(function () {
     echo view('errors/404');
 });
 

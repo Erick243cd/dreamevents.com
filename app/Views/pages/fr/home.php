@@ -91,7 +91,7 @@
                                     <div class="d-gr-sec"></div>
                                     <div class="listing-counter color2-bg"><span><?= $row->nbCities ?> </span> Service<?= $row->nbCities > 1 ? 's' : '' ?></div>
                                     <div class="listing-item-grid_title">
-                                        <h3><a href="<?= site_url("city/$row->cityName_fr") ?>" title="listing.html"><?= $row->cityName_fr ?></a></h3>
+                                        <h3><a href="<?= site_url("cities/$row->cityName_fr") ?>" title="Services <?= $row->cityName_fr ?>"><?= $row->cityName_fr ?></a></h3>
                                         <p>Découvrez les meilleurs services pour vos événements dans la ville de <?= $row->cityName_fr ?></p>
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                         <!--  listing-item-grid end  -->
                     </div>
                 </div>
-                <a href="<?= site_url("cities") ?>" class="btn dec_btn   color2-bg">Voir dans toutes les villes<i class="fal fa-arrow-alt-right"></i></a>
+                <a href="<?= site_url("cities") ?>" class="btn dec_btn color2-bg">Voir dans toutes les villes<i class="fal fa-arrow-alt-right"></i></a>
             </div>
 
         </section>
@@ -118,7 +118,7 @@
                     <h4>Tayari Events facilite l'organisation événements</h4>
                     <h2>Préparez votre événement avec aisance et tranquilité <br> avec Tayari Events.</h2>
                 </div>
-                <a href="https://vimeo.com/70851162" class="promo-link big_prom   image-popup"><i class="fal fa-play"></i><span>Voir la Video</span></a>
+                <a href="<?= site_url("public/assets/video/2.mp4") ?>" class="promo-link big_prom   image-popup"><i class="fal fa-play"></i><span>Voir la Video</span></a>
             </div>
         </section>
         <!--section end-->

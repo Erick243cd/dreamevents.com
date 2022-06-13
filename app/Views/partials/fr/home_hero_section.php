@@ -188,7 +188,7 @@
                 <?php foreach ($categories as $row) : ?>
                     <li><a href="<?= site_url("categories/$row->categorySlug") ?>" title="<?= $row->categoryName_fr ?>"><i class="<?= $row->categoryIcon ?>"></i><span><?= $row->categoryName_fr ?></span></a></li>  
                 <?php endforeach ?>
-                <li><a href="<?= site_url("categories") ?>" title="Voir plus"><i class=""></i><span class="text-primary">Voir plus</span></a></li>
+                <li><a href="<?= site_url("services/all") ?>" title="Voir plus"><i class=""></i><span class="text-primary">Voir plus</span></a></li>
             </ul>
         </div>
     </div>
